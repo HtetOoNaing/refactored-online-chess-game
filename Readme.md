@@ -1,3 +1,15 @@
+# Refactored
+
+- App.js with custom hook for handling orientation
+- useOrientation
+- GameSelect.js with custom Layout and dynamic handleGameModeClick function
+- GameSelect.scss
+- MatchPlayLogin.js with form handling with submit and custom input and button
+- MatchPlayLogin.scss
+- RoomScreen.js - Used useRef for socket instead of storing it in state to avoid unnecessary re-renders
+- refactor some other details like cleanup function in useEffect and also follows DRY, KISS and SRP in some cases
+
+
 # Installation Guide
 Node version is 16.20.2
 ```
