@@ -4,7 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./GameSelect.scss";
 import song from "assets/audio/gameselect.mp3";
 import { gameModeItems } from "utils/constant";
-import GameModeItem from "components/GameModeItem";
+import GameModeItem from "./GameModeItem";
+import Layout from "../Layout/Layout";
 
 const GameSelect = () => {
   const [playSong] = useSound(song);
@@ -16,21 +17,20 @@ const GameSelect = () => {
   };
 
   return (
-    <div className="GameSelect">
-      <div className="u-container">
-        <div className="u-ribbon">Select game</div>
-        <div className="u-content">
-          {gameModeItems.map((item, index) => (
-            <GameModeItem
-              key={index}
-              label={item.label}
-              image={item.image}
-              onClick={() => handleGameModeClick(item.navigateTo)}
-            />
-          ))}
-        </div>
+    <Layout className="GameSelect" ribbonText="Select game">
+
+      <div className="u-content">
+        {gameModeItems.map((item, index) => (
+          <GameModeItem
+            key={index}
+            label={item.label}
+            image={item.image}
+            onClick={() => handleGameModeClick(item.navigateTo)}
+          />
+        ))}
       </div>
-    </div>
+
+    </Layout>
   );
 };
 

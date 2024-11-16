@@ -2,8 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./MatchPlayLogin.scss";
-import Input from "components/Form/Input";
+import Input from "components/Form/Input/Input";
 import { gameModes } from "utils/constant";
+import Layout from "../Layout/Layout";
+import Button from "components/Form/Button/Button";
 
 export const MatchPlayLogin = () => {
   const [name, setName] = useState('');
@@ -20,20 +22,17 @@ export const MatchPlayLogin = () => {
   };
 
   return (
-    <div className="MatchPlayLogin">
-      <div className="u-container">
-        <div className="u-ribbon">Match matching game</div>
-        <div className="u-content">
-          <div className="u-logo"></div>
-          <form onSubmit={handleSubmit}>
-            <Input type="text" placeholder="Enter your name" value={name} onChange={handleInputChange} />
-            <div className="u-buttongroup">
-              <button type="submit" className="u-button">Play</button>
-            </div>
-          </form>
-        </div>
+    <Layout className="MatchPlayLogin" ribbonText="Match matching game">
+      <div className="u-content">
+        <div className="u-logo"></div>
+        <form onSubmit={handleSubmit}>
+          <Input type="text" placeholder="Enter your name" value={name} onChange={handleInputChange} />
+          <Button>
+            Play
+          </Button>
+        </form>
       </div>
-    </div>
+    </Layout>
   )
 }
 

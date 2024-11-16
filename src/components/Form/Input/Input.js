@@ -1,3 +1,5 @@
+import "./Input.scss";
+
 const Input = ({ type = "text", placeholder, value, onChange, className, containerClassName }) => {
   return (
     <div className={`u-input-wrap ${containerClassName}`}>
