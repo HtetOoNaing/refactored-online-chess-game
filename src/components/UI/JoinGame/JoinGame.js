@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { gameModes, userTypes } from "../../../utils/constant";
 import { useEffect, useState } from "react";
 import io from 'socket.io-client';
-import { socketServerPort } from "../../../config";
+import { socketServerPort } from "../../../configuration";
 import { socketEvents } from "../../../utils/packet";
 import store from "../../../store/store";
 

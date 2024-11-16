@@ -1,6 +1,7 @@
-import MatchPlayLogin from "../../components/UI/MatchPlayLogin/MatchPlayLogin";
+import MatchPlayLogin from "components/UI/MatchPlayLogin/MatchPlayLogin";
 
-export const MatchPlay = () => {
+
+const MatchPlay = () => {
     return (
         <MatchPlayLogin />
     )

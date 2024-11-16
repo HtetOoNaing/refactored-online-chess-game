@@ -3,7 +3,7 @@ import { Component } from "react";
 import RankingRow from "./RankingRow";
 import "./Ranking.scss";
 import axios from "axios";
-import { socketServerPort } from "../../../config";
+import { socketServerPort } from "../../../configuration";
 import { Modal } from "react-bootstrap";
 
 export default class Ranking extends Component {
