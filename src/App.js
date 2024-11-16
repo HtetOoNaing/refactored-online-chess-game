@@ -1,5 +1,4 @@
 import "./App.scss";
-import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GameSelect from "./components/UI/GameSelect/GameSelect";
 import Level from "./components/UI/Level/Level";
@@ -9,23 +8,10 @@ import MatchPlay from "./views/MatchPlay";
 import Orientation from "./components/UI/Orientation/Orientation";
 import Connect from "./components/UI/Connect/Connect";
 import Ranking from "./components/UI/Ranking/Ranking";
+import useOrientation from "./hooks/useOrientation";
 
 function App() {
-  const [orientation, setOrientation] = useState(false);
-
-  useEffect(() => {
-    window.screen.orientation.lock("landscape").catch((e) => {
-      console.log(e);
-    });
-    window.addEventListener(
-      "resize",
-      function () {
-        setOrientation(window.innerHeight > window.innerWidth);
-      },
-      false
-    );
-    setOrientation(window.innerHeight > window.innerWidth);
-  }, []);
+  const orientation = useOrientation();
 
   return (
     <BrowserRouter>
