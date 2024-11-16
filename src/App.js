@@ -10,7 +10,7 @@ import Connect from "./components/UI/Connect/Connect";
 import Ranking from "./components/UI/Ranking/Ranking";
 import useOrientation from "./hooks/useOrientation";
 
-function App() {
+const App = () => {
   const orientation = useOrientation();
 
   return (

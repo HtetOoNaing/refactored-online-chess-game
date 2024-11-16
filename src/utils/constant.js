@@ -1,4 +1,25 @@
 import { ang2Rad } from "./helper";
+import mode1Img from "assets/img/select_game_random.png";
+import mode2Img from "assets/img/select_game_friend.png";
+import mode3Img from "assets/img/select_game_computer.png";
+
+export const gameModeItems = [
+    {
+        label: "Match with Random User",
+        image: mode1Img,
+        navigateTo: "/matchPlay",
+    },
+    {
+        label: "Match with Friend",
+        image: mode2Img,
+        navigateTo: "/friendPlay",
+    },
+    {
+        label: "Match with Computer",
+        image: mode3Img,
+        navigateTo: "/machinePlay",
+    },
+];
 
 export const cameraProps = {
     fov: 60,

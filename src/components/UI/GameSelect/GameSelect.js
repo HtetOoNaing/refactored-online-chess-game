@@ -1,30 +1,17 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Image } from "react-bootstrap";
+import useSound from "use-sound";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./GameSelect.scss";
-import mode1Img from "../../../assets/img/select_game_random.png";
-import mode2Img from "../../../assets/img/select_game_friend.png";
-import mode3Img from "../../../assets/img/select_game_computer.png";
-import song from "../../../assets/audio/gameselect.mp3";
-import useSound from "use-sound";
+import song from "assets/audio/gameselect.mp3";
+import { gameModeItems } from "utils/constant";
+import GameModeItem from "components/GameModeItem";
 
-export const GameSelect = () => {
+const GameSelect = () => {
   const [playSong] = useSound(song);
   const navigate = useNavigate();
 
-  const matchPlayAction = () => {
-    navigate("/matchPlay");
-    playSong();
-  };
-
-  const friendPlayAction = () => {
-    navigate("/friendPlay");
-    playSong();
-  };
-
-  const machinePlayAction = () => {
-    navigate("/machinePlay");
+  const handleGameModeClick = (path) => {
+    navigate(path);
     playSong();
   };
 
@@ -33,18 +20,14 @@ export const GameSelect = () => {
       <div className="u-container">
         <div className="u-ribbon">Select game</div>
         <div className="u-content">
-          <div className="u-item" onClick={matchPlayAction}>
-            <Image className="u-item-image" src={mode1Img}></Image>
-            <div className="u-item-text">Match with Random User</div>
-          </div>
-          <div className="u-item" onClick={friendPlayAction}>
-            <Image className="u-item-image" src={mode2Img}></Image>
-            <div className="u-item-text">Match with Friend</div>
-          </div>
-          <div className="u-item" onClick={machinePlayAction}>
-            <Image className="u-item-image" src={mode3Img}></Image>
-            <div className="u-item-text">Match with Computer</div>
-          </div>
+          {gameModeItems.map((item, index) => (
+            <GameModeItem
+              key={index}
+              label={item.label}
+              image={item.image}
+              onClick={() => handleGameModeClick(item.navigateTo)}
+            />
+          ))}
         </div>
       </div>
     </div>
